@@ -1,12 +1,28 @@
-void main() {
-  var numbers = {1, 2, 3, 4};
-  Set<String> names = {'Minho', 'Kyle'};
-  print(
-    "$numbers \n",
-  );
-  numbers.add(1);
-  numbers.add(1);
-  numbers.add(1);
+mixin class Strong {
+  final double strengthLevel = 100.99;
+}
 
-  print(numbers);
+mixin class Quick {
+  void runQuick() {
+    print("Ruuuuuun");
+  }
+}
+
+mixin class Tall {
+  final double height = 2.00;
+}
+
+enum Team { Korea, Yeonse }
+
+class Player with Strong, Quick, Tall {
+  final Team team;
+  Player({
+    required this.team,
+  });
+}
+
+void main() {
+  var player = Player(team: Team.Korea);
+  player.height;
+  player.runQuick();
 }
